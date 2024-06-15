@@ -1,0 +1,16 @@
+def expand_string(s: str) -> str:
+    result = []
+    i = 0
+    while i < len(s):
+        char = s[i]
+        i += 1
+        count = 0
+        while i < len(s) and s[i].isdigit():
+            count = count * 10 + int(s[i])
+            i += 1
+        result.append(char * count)
+    return "".join(result)
+
+input_str = input()
+output_str = expand_string(input_str)
+print(output_str) 
