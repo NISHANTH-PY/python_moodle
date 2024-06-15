@@ -1,0 +1,34 @@
+def calculate_total_revenue():
+    import sys
+    input = sys.stdin.read
+    data = input().split()
+    
+    X = int(data[0])
+    shoe_sizes = list(map(int, data[1:X+1]))
+    
+    # Dictionary to keep track of shoe size inventory
+    inventory = {}
+    for size in shoe_sizes:
+        if size in inventory:
+            inventory[size] += 1
+        else:
+            inventory[size] = 1
+    
+    N = int(data[X+1])
+    requests = data[X+2:]
+    
+    total_revenue = 0
+    
+    for i in range(N):
+        size = int(requests[2 * i])
+        price = int(requests[2 * i + 1])
+        
+        if size in inventory and inventory[size] > 0:
+            total_revenue += price
+            inventory[size] -= 1
+    
+    print(total_revenue)
+
+# Assuming this function is called with the standard input properly set up
+calculate_total_revenue()
+  
