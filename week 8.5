@@ -1,0 +1,22 @@
+n = int(input())
+students = {}
+for _ in range(n):
+    name, *marks = input().split()
+    students[name] = tuple(map(int, marks))
+
+avg_scores = {name: sum(m) / len(m) for name, m in students.items()}
+highest_avg = max(avg_scores.values())
+highest_avg_students = sorted(name for name, score in avg_scores.items() if score == highest_avg)
+highest_assignment = max(marks[1] for marks in students.values())
+highest_assignment_students = sorted(name for name, marks in students.items() if marks[1] == highest_assignment)
+lowest_lab = min(marks[2] for marks in students.values())
+lowest_lab_students = sorted(name for name, marks in students.items() if marks[2] == lowest_lab)
+lowest_avg = min(avg_scores.values())
+lowest_avg_students = sorted(name for name, score in avg_scores.items() if score == lowest_avg)
+
+print("\n".join([
+    " ".join(highest_avg_students),
+    " ".join(highest_assignment_students),
+    " ".join(lowest_lab_students),
+    " ".join(lowest_avg_students)
+]))
