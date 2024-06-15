@@ -1,0 +1,20 @@
+import math
+
+def calculate_square_root(num):
+    try:
+        num = float(num)
+        if num < 0:
+            print("Error: Cannot calculate the square root of a negative number.")
+        else:
+            result = math.sqrt(num)
+            print("The square root of {} is {:.2f}".format(num, result))
+    except ValueError:
+        print("Error: could not convert string to float")
+
+def main():
+    num_input = input()
+    calculate_square_root(num_input)
+
+if __name__ == "__main__":
+    main()
+  
