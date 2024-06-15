@@ -1,0 +1,32 @@
+# Input
+n = int(input())
+lst = []
+for _ in range(n):
+    lst.append(int(input()))
+
+# Function to check if a list is strictly increasing
+def is_strictly_increasing(lst):
+    for i in range(1, len(lst)):
+        if lst[i] <= lst[i - 1]:
+            return False
+    return True
+
+# Function to check if a list is strictly decreasing
+def is_strictly_decreasing(lst):
+    for i in range(1, len(lst)):
+        if lst[i] >= lst[i - 1]:
+            return False
+    return True
+
+# Check if the list is strictly increasing or strictly decreasing
+if is_strictly_increasing(lst) or is_strictly_decreasing(lst):
+    print("True")
+else:
+    # Check if removing only one element from the list results in a strictly increasing list
+    for i in range(len(lst)):
+        temp_lst = lst[:i] + lst[i+1:]
+        if is_strictly_increasing(temp_lst):
+            print("True")
+            break
+    else:
+        print("False")
