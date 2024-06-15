@@ -1,0 +1,23 @@
+def categorize_books():
+    import sys
+    from collections import OrderedDict
+
+    input = sys.stdin.read
+
+    data = input().strip().split('\n')
+    books_by_genre = OrderedDict()
+
+    for line in data:
+        if line.strip() == "":
+            continue
+        title, genre = map(str.strip, line.split(",", 1))
+        
+        if genre not in books_by_genre:
+            books_by_genre[genre] = []
+        books_by_genre[genre].append(title)
+    
+    for genre in books_by_genre:
+        print(f"{genre}: {', '.join(books_by_genre[genre])}")
+
+# Call the function to categorize books and print the output
+categorize_books()
