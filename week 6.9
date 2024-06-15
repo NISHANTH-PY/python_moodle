@@ -1,0 +1,21 @@
+def print_distinct(arr):
+    distinct_elements = []
+    for i in range(len(arr)):
+        is_distinct = True
+        for j in range(i):
+            if arr[i] == arr[j]:
+                is_distinct = False
+                break
+        if is_distinct:
+            distinct_elements.append(arr[i])
+    return distinct_elements
+
+# Input: Number of elements (n) and the list of values
+n = int(input())
+arr = [int(input()) for _ in range(n)]
+
+# Get distinct elements
+result = print_distinct(arr)
+
+# Print the result
+print(*result)
