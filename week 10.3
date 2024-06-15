@@ -1,0 +1,23 @@
+def ms(a):
+    if len(a) > 1:
+        mid = len(a) // 2
+        l = a[:mid]
+        r = a[mid:]
+        ms(l)
+        ms(r)
+        a.clear()
+        while len(l) > 0 and len(r) > 0:
+            if l[0] <= r[0]:
+                a.append(l[0])
+                l.pop(0)
+            else:
+                a.append(r[0])
+                r.pop(0)
+        a.extend(l)
+        a.extend(r)
+
+n = int(input())
+arr = list(map(int, input().split()))
+ms(arr)
+for i in range(len(arr)):
+    print(arr[i],end=' ')
