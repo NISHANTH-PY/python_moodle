@@ -1,0 +1,15 @@
+def compare_strings_lexicographically():
+    T = int(input())  # Number of test cases
+    for _ in range(T):
+        string1 = input().lower()
+        string2 = input().lower()
+
+        if string1 < string2:
+            print("-1")
+        elif string1 > string2:
+            print("1")
+        else:
+            print("0")
+
+# Call the function
+compare_strings_lexicographically()
