@@ -1,0 +1,17 @@
+# Input the elements of the sorted array
+arr = [int(input()) for _ in range(10)]
+
+# Input the item to be inserted
+item = int(input())
+
+# Find the correct position for insertion
+i = 0
+while i < len(arr) and arr[i] < item:
+    i += 1
+
+# Shift the elements to the right to make space for the new item
+arr.insert(i, item)
+
+print("ITEM to be inserted:"+str(item))
+print("After insertion array is:")
+print(*arr, sep='\n')
