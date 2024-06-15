@@ -1,0 +1,19 @@
+def safe_division(num1, num2):
+    try:
+        result = num1 / num2
+        print(result)
+    except ZeroDivisionError:
+        print("Error: Cannot divide or modulo by zero.")
+    except Exception as e:
+        print("Error:", e)
+
+def main():
+    try:
+        num1 = float(input())
+        num2 = float(input())
+        safe_division(num1, num2)
+    except ValueError:
+        print("Error: Non-numeric input provided.")
+
+if __name__ == "__main__":
+    main()
