@@ -1,0 +1,17 @@
+units = float(input())
+if units <= 199:
+    charge_per_unit = 1.20
+elif units < 400:
+    charge_per_unit = 1.50
+elif units < 600:
+    charge_per_unit = 1.80
+else:
+    charge_per_unit = 2.00
+total_amount = units * charge_per_unit
+if total_amount > 400:
+    surcharge = total_amount * 0.15
+    total_amount += surcharge
+if total_amount < 100:
+    total_amount = 100
+print("{:.2f}".format(total_amount))
+  
