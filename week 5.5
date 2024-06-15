@@ -1,0 +1,11 @@
+keywords=['break','case','continue','default','defer','else','for','func','goto','if','map','range','return','struct','type','var']
+s=input()
+flag=0
+for i in keywords:
+    if(s==i):
+        flag=1
+        break
+if(flag==1):
+    print(s,'is a keyword')
+else:
+    print(s,'is not a keyword')
