@@ -1,0 +1,22 @@
+def count_words_with_min_length(S, L):
+    # Split the input string into words
+    words = S.split()
+
+    # Initialize the count for words with minimum length L
+    count = 0
+
+    # Check each word's length and increment the count if it meets the condition
+    for word in words:
+        # Remove punctuation marks from the word
+        cleaned_word = ''.join(c for c in word if c.isalnum())
+        if len(cleaned_word) >= L:
+            count += 1
+
+    return count
+
+# Read input
+S = input().strip()
+L = int(input().strip())
+
+# Calculate and print the result
+print(count_words_with_min_length(S, L))
