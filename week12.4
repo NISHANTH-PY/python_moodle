@@ -1,0 +1,46 @@
+def count_pairs(activities, k):
+    # Create a dictionary to store the count of each activity
+    activity_count = {}
+    pairs_count = 0
+    
+    # Count the occurrences of each activity
+    for activity in activities:
+        if activity in activity_count:
+            activity_count[activity] += 1
+        else:
+            activity_count[activity] = 1
+    
+    # Iterate through the activities and check for pairs
+    for activity in activities:
+        # For k=0, count occurrences where there are at least 2 of the same activity
+        if k == 0:
+            if activity_count[activity] >= 2:
+                # If there are at least 2 occurrences of the same activity, count a pair
+                pairs_count += 1
+                # Decrement the count by 2 since we've considered this pair
+                activity_count[activity] -= 2
+        else:
+            # Check if activity + k exists in the dictionary and is not the same activity
+            if activity + k in activity_count and activity != activity + k:
+                # Add the count of pairs with the given difference
+                pairs_count += activity_count[activity + k]
+            # Check if activity - k exists in the dictionary and is not the same activity
+            if activity - k in activity_count and activity != activity - k:
+                # Add the count of pairs with the given difference
+                pairs_count += activity_count[activity - k]
+        
+        # Decrement the count of the current activity
+        activity_count[activity] -= 1
+    
+    return pairs_count
+
+# Input handling
+try:
+    n = int(input())
+    activities = list(map(int, input().split()))
+    k = int(input())
+    
+    # Output the result
+    print(count_pairs(activities, k))
+except ValueError:
+    print("Invalid input. Please enter valid integers for the number of activities and k.")
